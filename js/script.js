@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
    
    
    function GetCats(){
-
+      deleteItems();
       let getCats = 'http://bipihok184-001-site1.itempurl.com/Products/CatsFeed';
       
       fetch(getCats)
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
    };
    function GetDogs(){
-
+      deleteItems();
       let getDogs = 'http://bipihok184-001-site1.itempurl.com/Products/DogFeed';
       
       fetch(getDogs)
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
    };
    function GetParrots(){
-
+      deleteItems();
       let getParrotss = 'http://bipihok184-001-site1.itempurl.com/Products/ParrotFeed';
       
       fetch(getParrotss)
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
    };
    function GetFishes(){
-
+      deleteItems();
       let getFishes = 'http://bipihok184-001-site1.itempurl.com/Products/FishFeed';
       
       fetch(getFishes)
@@ -71,6 +71,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
          console.error('GET_FISHES ERROR');
       });
    };
+
+   function deleteItems() {
+  
+      const deleteElement = document.querySelector('#prod');
+    
+      deleteElement.innerHTML = '';
+      
+    }
 
    function Construct(data){
       // select container
