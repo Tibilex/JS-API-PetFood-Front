@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
          Construct(data);              
       })
       .catch((error) =>{
-         console.error('GET_PARROTS ERROR');
+         console.error('GET_FISHES ERROR');
       });
    };
 
