@@ -1,0 +1,220 @@
+// window parameters =============================================//
+$minWidth: 320px;
+$maxWidth: 1440px;
+$maxWidthContainer: 1100px;
+
+// colors ========================================================//
+$colorRed: #b4002a;
+$colorDark: #242B33;
+$colorGray: #929292;
+
+// default font parameter ========================================//
+$fontFamily: "roboto";
+$fontSize: 16px;
+//================================================================//
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+outline: none;
+}
+
+a:focus, a:active {
+outline: none;
+}
+
+nav, header, footer, aside {
+display: block;
+}
+
+html, body {
+height: 100%;
+width: 100%;
+font-size: 100%;
+line-height: 1;
+font-size: $fontSize;
+font-family: $fontFamily, sans-serif;
+color: #000000;
+background-color: $colorDark;
+-ms-text-size-adjust: 100%;
+-moz-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+font-family: inherit;
+}
+
+input::ms-clear {
+display: none;
+}
+
+button {
+cursor: pointer;
+}
+
+button::moz-focus-inner {
+padding: 0;
+border: 0;
+}
+
+a, a:visited {
+text-decoration: none;
+color: inherit;
+}
+
+a:hover {
+text-decoration: none;
+}
+
+ul li {
+list-style: none;
+}
+
+img {
+vertical-align: top;
+}
+
+//===============================================================//@at-root
+
+.container {
+    width: $maxWidthContainer;
+    margin: 0 auto;
+    position: relative;
+}
+.header {
+    width: 100%;
+    background: $colorRed;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    max-height: 60px;
+		&__logo {
+            padding: 0 0 15px 0;
+		}
+        &__block{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+		&__buttons {
+            display: flex;
+            margin: 0 60px 0 10px;
+		}
+        &__logo-img{
+            padding: 15px 0 0 0;
+            max-height: 60px;
+            max-width: 200px;
+        }
+}
+
+@keyframes button3_pulsate{
+    0%{
+        box-shadow: 0 0 25px $colorDark, 0 0 25px #a19e9e;       
+    }
+}
+
+.button {
+    position: relative;
+    background: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000000;
+    border-radius: 6px;
+    transition: .4s;
+    border: 2px solid $colorDark;
+    padding: 10px 40px;
+    z-index: 1;
+    overflow: hidden;
+    letter-spacing: 2px;
+    background: #ffffff;
+    margin: 0 10px;
+}
+
+.button:hover{
+    animation: button3_pulsate 1s ease-in-out;
+    color: #ffffff;
+    background-color: $colorDark;
+}
+
+.products{
+    width: $maxWidthContainer;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 60px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+
+    // .products__block
+    &__block {
+        padding: 10px 0;
+    }
+}
+.product__item {
+    width: 300px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+}
+.item {
+    &__img {
+        display: flex;
+        padding: 10px;      
+    }
+    &__name {
+        font-weight: 700;
+    }
+    &__transcript {
+        font-size: 14px;
+        color: $colorRed;
+        padding: 10px 20px;
+    }
+    &__fullprice {
+        display: flex;
+        align-items: baseline;
+        font-weight: 700;
+        color: $colorRed;
+    }
+    &__price {
+        margin: 0 5px;
+    }
+    &__currency {
+        margin: 0 2px 0  0;
+    }
+    &__fullweight {
+        display: flex;
+        align-items: baseline;
+        font-weight: 700;
+        color: $colorGray;
+    }
+    &__weght {
+        font-size: 16px;   
+        margin: 0 2px;    
+    }
+    &__count {
+        font-size: 12px;      
+    }
+    &__fullcode {
+        display: flex;
+        align-items: baseline;
+        color: $colorGray;
+    }
+    &__code {      
+        margin: 5px 0;
+        font-size: 12px;
+    }
+}
