@@ -1,84 +1,86 @@
 document.addEventListener('DOMContentLoaded', ()=>{
+   
+   document.addEventListener('click', (event) => {
+      const type = event.target.dataset.type;
 
-   let cat = document.querySelector('#cat');
-   let dog = document.querySelector('#dog');
-   let parrot = document.querySelector('#parrot');
-   let fish = document.querySelector('#fish');
-   
-   cat.addEventListener("click", GetCats);
-   dog.addEventListener("click", GetDogs);
-   parrot.addEventListener("click", GetParrots);
-   fish.addEventListener("click", GetFishes);
-   
-   
+      if (type === 'cats'){
+         GetCats()
+      }
+      if (type === 'dogs'){
+         GetDogs()
+      }
+      if (type === 'parrots'){
+         GetParrots()
+      }
+      if (type === 'fishes'){
+         GetFishes()
+      }
+   })
+
+   //#region Get Requests
    function GetCats(){
       deleteItems();
-      let getCats = 'http://bipihok184-001-site1.itempurl.com/Products/CatsFeed';
-      
-      fetch(getCats)
-      .then((res) =>{
-         return res.json();
+        
+      $.get("http://bipihok184-001-site1.itempurl.com/Products/CatsFeed")
+       .done((data) =>{
+         Construct(data);
+                      
       })
-      .then((data) =>{
-         Construct(data);              
-      })
-      .catch((error) =>{
-         console.error('GET_CATS ERROR');
-      });
-   };
-   function GetDogs(){
-      deleteItems();
-      let getDogs = 'http://bipihok184-001-site1.itempurl.com/Products/DogFeed';
-      
-      fetch(getDogs)
-      .then((res) =>{
-         return res.json();
-      })
-      .then((data) =>{
-         Construct(data);              
-      })
-      .catch((error) =>{
-         console.error('GET_DOGS ERROR');
-      });
-   };
-   function GetParrots(){
-      deleteItems();
-      let getParrotss = 'http://bipihok184-001-site1.itempurl.com/Products/ParrotFeed';
-      
-      fetch(getParrotss)
-      .then((res) =>{
-         return res.json();
-      })
-      .then((data) =>{
-         Construct(data);              
-      })
-      .catch((error) =>{
-         console.error('GET_PARROTS ERROR');
-      });
-   };
-   function GetFishes(){
-      deleteItems();
-      let getFishes = 'http://bipihok184-001-site1.itempurl.com/Products/FishFeed';
-      
-      fetch(getFishes)
-      .then((res) =>{
-         return res.json();
-      })
-      .then((data) =>{
-         Construct(data);              
-      })
-      .catch((error) =>{
-         console.error('GET_FISHES ERROR');
+       .fail(() =>{
+           console.warn("CATS REQUEST ERROR");
       });
    };
 
+
+   function GetDogs(){
+      deleteItems();
+    
+      $.get("http://bipihok184-001-site1.itempurl.com/Products/DogFeed")
+       .done((data) =>{
+         Construct(data);
+                      
+      })
+       .fail(() =>{
+           console.warn('DOGS REQUEST ERROR');
+      }); 
+   };
+
+
+   function GetParrots(){
+      deleteItems();
+      
+      $.get("http://bipihok184-001-site1.itempurl.com/Products/ParrotFeed")
+       .done((data) =>{
+         Construct(data);                   
+      })
+       .fail(() =>{
+           console.warn('PARROTS REQUEST ERROR');
+      }); 
+   };
+
+
+   function GetFishes(){
+      deleteItems();
+      
+      $.get("http://bipihok184-001-site1.itempurl.com/Products/FishFeed")
+       .done((data) =>{
+         Construct(data);                   
+      })
+       .fail(() =>{
+           console.warn('FISHES REQUEST ERROR');
+      }); 
+   };
+
+   //#endregion
+
+   //#region Page Methods
    function deleteItems() {
   
       const deleteElement = document.querySelector('#prod');
     
       deleteElement.innerHTML = '';
       
-    }
+   }
 
    function Construct(data){
       // select container
@@ -168,5 +170,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
          prodBlock.append(prodItem);
          container.append(prodBlock);
          }
-   }             
+   }
+   
+   //#endregion
+
 });

@@ -4,6 +4,10 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700&display=swap&subset=cyrillic-ext" rel="stylesheet" />
    <link href="css/style.css" rel="stylesheet"> 
    <title>Pet Shop</title>
@@ -16,10 +20,10 @@
                <img src="img/logo_petslike.webp" alt="logo" class="header__logo-img">
             </div>
             <div class="header__buttons">
-               <button id="cat" class="button">Кошкам</button>
-               <button id="dog" class="button">Собакам</button>
-               <button id="parrot" class="button">Попугаям</button>
-               <button id="fish" class="button">Рыбкам</button>
+               <button data-type="cats" class="button">Кошкам</button>
+               <button data-type="dogs" class="button">Собакам</button>
+               <button data-type="parrots" class="button">Попугаям</button>
+               <button data-type="fishes" class="button">Рыбкам</button>
             </div>
          </div>
       </header>
